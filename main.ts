@@ -1,7 +1,7 @@
 //% weight=30 icon="\uf1b9" color=#000000 block="KAGA:bit-Drive"
-namespace kagabitdrive{
+namespace kagabitdrive {
 
-    enum direction{
+    enum direction {
         //% block=Forward
         Forward = 1,
         //% block=Back
@@ -16,7 +16,7 @@ namespace kagabitdrive{
     export function startLed() {
         led.enable(true)
     }
-    //% blockId=show_strings block="コメント文 %gesture%v"
+    //% blockId=show_strings block="コメント文 %text %v"
     export function showcomment(text: direction): void {
     }
 
