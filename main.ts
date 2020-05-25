@@ -2,9 +2,9 @@
 namespace kagabitdrive {
 
     export enum direction {
-        //% block=Forward
+        //% block="前"
         Forward = 1,
-        //% block=Back
+        //% block="後"
         Back = 0
     }
 
