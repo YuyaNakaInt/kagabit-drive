@@ -31,7 +31,6 @@ namespace kagabitdrive{
 
     //% blockId=L_DCmotor
     //% block="Lモーター 方向%mode 出力%power"
-    //% mode.min=0 mode.max=1
     //% power.min=0 power.max=1023
     export function Lmotor(mode: direction, power: number) {
         //nowModeL = mode;
