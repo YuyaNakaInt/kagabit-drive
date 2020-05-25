@@ -45,11 +45,24 @@ namespace kagabitdrive {
 
     }
 
-    //% blockId=R_Servo_Angle block="Rサーボの角度%angle"
-    //% angle.min=0 angle.max=180
-    export function RServoAngle(angle: number) {
-        
-        pins.servoWritePin(AnalogPin.P3, angle)
+    //% blockId=L_DCmotorDigtal
+    //% block="Lモーター 方向%mode デジタル出力%power"
+    //% power.min=0 power.max=1
+    export function LmotorD(mode: direction, power: number) {
+
+        pins.digitalWritePin(DigitalPin.P15, mode)
+        pins.digitalWritePin(DigitalPin.P16, power)
+
+    }
+
+    //% blockId=R_DCmotorDigtal
+    //% block="Rモーター 方向%mode デジタル出力%power"
+    //% power.min=0 power.max=1
+    export function RmotorD(mode: direction, power: number) {
+
+        pins.digitalWritePin(DigitalPin.P13, mode)
+        pins.digitalWritePin(DigitalPin.P14, power)
+
     }
 
     //% blockId=L_Servo_Angle block="Lサーボの角度%angle"
@@ -58,4 +71,12 @@ namespace kagabitdrive {
         
         pins.servoWritePin(AnalogPin.P4, angle)
     }
+
+    //% blockId=R_Servo_Angle block="Rサーボの角度%angle"
+    //% angle.min=0 angle.max=180
+    export function RServoAngle(angle: number) {
+        
+        pins.servoWritePin(AnalogPin.P3, angle)
+    }
+    
 }
