@@ -15,10 +15,10 @@ namespace kagabitdrive {
     }
     //% blockId=use_led block="LEDの利用 %ledmode %v"
     export function useled(ledmode:ledmodeval):void{
-        if(ledmode == 1){
+        if(ledmode == ledmodeval.Use){
             led.enable(true)
         }
-        else if (ledmode == 1){
+        else if (ledmode == ledmodeval.NoUse){
             led.enable(false)
         }else{
 
