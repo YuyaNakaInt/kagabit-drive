@@ -16,8 +16,8 @@ namespace kagabitdrive {
     export function startLed() {
         led.enable(true)
     }
-    //% blockId=show_strings block="コメント文 %text %v"
-    export function showcomment(text: direction): void {
+    //% blockId=show_strings block="コメント文 %text %power %v"
+    export function showcomment(text: direction,power:number): void {
     }
 
 }
