@@ -28,4 +28,14 @@ namespace kagabitdrive {
     export function showcomment(text: direction,power:number): void {
     }
 
+    //% blockId=L_DCmotorAnalog
+    //% block="Lモーター 方向%mode アナログ出力%power"
+    //% power.min=0 power.max=1023
+    export function LmotorA(mode: direction, power: number) {
+
+        pins.digitalWritePin(DigitalPin.P15, mode)
+        pins.analogWritePin(AnalogPin.P16, power)
+  
+    }
+
 }
