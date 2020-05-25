@@ -45,4 +45,17 @@ namespace kagabitdrive {
 
     }
 
+    //% blockId=R_Servo_Angle block="Rサーボの角度%angle"
+    //% angle.min=0 angle.max=180
+    export function RServoAngle(angle: number) {
+        
+        pins.servoWritePin(AnalogPin.P3, angle)
+    }
+
+    //% blockId=L_Servo_Angle block="Lサーボの角度%angle"
+    //% angle.min=0 angle.max=180
+    export function LServoAngle(angle: number) {
+        
+        pins.servoWritePin(AnalogPin.P4, angle)
+    }
 }
