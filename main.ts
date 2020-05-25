@@ -1,7 +1,7 @@
 //% weight=30 icon="\uf1b9" color=#000000 block="KAGA:bit-Drive"
 namespace kagabitdrive {
 
-    enum direction {
+    export enum direction {
         //% block=Forward
         Forward = 1,
         //% block=Back
