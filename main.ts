@@ -14,25 +14,25 @@ namespace kagabitdrive {
         Back = 0
     }
 
-   /* enum anadigival{
+    enum adMode{
         //アナログ
         Analog = 1,
         //デジタル
         Digital = 0
     }
 
-    enum stopval{
+    enum stop{
         //停止
         Stop = 1,
         //移動
         Move = 0
     }
 
-    let nowADmode = [anadigival.Analog, anadigival.Analog];
+    let nowADmode = [adMode.Analog, adMode.Analog];
     let nowDirection = [direction.Forward,direction.Forward];
     let nowPower =[0,0];
-    let nowStop=[stopval.Stop,stopval.Stop];
-*/
+    let nowStop=[stop.Stop,stop.Stop];
+
     //% blockId=use_led block="LEDの利用 %ledmode %v"
     export function useled(ledmode:ledmodeval):void{
         if(ledmode == ledmodeval.Use){
@@ -50,10 +50,10 @@ namespace kagabitdrive {
     //% power.min=0 power.max=1023
     export function LmotorA(mode: direction, power: number) {
 
-        //nowADmode[0] = anadigival.Analog;
-        //nowDirection[0] = mode;
-        //nowPower[0] = power;
-        //nowStop[0] = stopval.Move;
+        nowADmode[0] = adMode.Analog;
+        nowDirection[0] = mode;
+        nowPower[0] = power;
+        nowStop[0] = stop.Move;
 
         pins.digitalWritePin(DigitalPin.P15, mode)
         pins.analogWritePin(AnalogPin.P16, power)
@@ -88,6 +88,30 @@ namespace kagabitdrive {
         pins.digitalWritePin(DigitalPin.P13, mode)
         pins.digitalWritePin(DigitalPin.P14, power)
 
+    }
+
+    //% blockId=L_DCmotor_stop
+    //% block="Lモーター停止"
+    export function LmotorStop() {
+        if (nowStop[0] == stop.Move) { //モーターが動いていたら
+            if(nowADmode[0] == adMode.Analog){  //アナログの場合
+                if(nowDirection[0]== direction.Forward){    //前回転の場合
+                    pins.digitalWritePin(DigitalPin.P15, direction.Back)
+                }else{  //後ろ回転の場合
+                    pins.digitalWritePin(DigitalPin.P15, direction.Forward)
+                }
+                pins.analogWritePin(AnalogPin.P16, nowPower[0])
+                basic.pause(50)
+                pins.analogWritePin(AnalogPin.P16, 0)
+            }else{
+
+            }
+        }else{
+
+        }
+
+        nowStop[0] == stop.Stop;
+           
     }
 
     //% blockId=L_Servo_Angle block="Lサーボの角度%angle"
