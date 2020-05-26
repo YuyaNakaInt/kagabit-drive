@@ -13,6 +13,26 @@ namespace kagabitdrive {
         //% block="後"
         Back = 0
     }
+
+   /* enum anadigival{
+        //アナログ
+        Analog = 1,
+        //デジタル
+        Digital = 0
+    }
+
+    enum stopval{
+        //停止
+        Stop = 1,
+        //移動
+        Move = 0
+    }
+
+    let nowADmode = [anadigival.Analog, anadigival.Analog];
+    let nowDirection = [direction.Forward,direction.Forward];
+    let nowPower =[0,0];
+    let nowStop=[stopval.Stop,stopval.Stop];
+*/
     //% blockId=use_led block="LEDの利用 %ledmode %v"
     export function useled(ledmode:ledmodeval):void{
         if(ledmode == ledmodeval.Use){
@@ -29,6 +49,11 @@ namespace kagabitdrive {
     //% block="Lモーター 方向%mode アナログ出力%power"
     //% power.min=0 power.max=1023
     export function LmotorA(mode: direction, power: number) {
+
+        //nowADmode[0] = anadigival.Analog;
+        //nowDirection[0] = mode;
+        //nowPower[0] = power;
+        //nowStop[0] = stopval.Move;
 
         pins.digitalWritePin(DigitalPin.P15, mode)
         pins.analogWritePin(AnalogPin.P16, power)
