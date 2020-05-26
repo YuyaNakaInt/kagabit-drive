@@ -65,6 +65,11 @@ namespace kagabitdrive {
     //% power.min=0 power.max=1023
     export function RmotorA(mode: direction, power: number) {
 
+        nowADmode[1] = adMode.Analog;
+        nowDirection[1] = mode;
+        nowPower[1] = power;
+        nowStop[1] = stop.Move;
+
         pins.digitalWritePin(DigitalPin.P13, mode)
         pins.analogWritePin(AnalogPin.P14, power)
 
@@ -89,6 +94,11 @@ namespace kagabitdrive {
     //% block="Rモーター 方向%mode デジタル出力%power"
     //% power.min=0 power.max=1
     export function RmotorD(mode: direction, power: number) {
+
+        nowADmode[1] = adMode.Digital;
+        nowDirection[1] = mode;
+        nowPower[1] = power;
+        nowStop[1] = stop.Move;
 
         pins.digitalWritePin(DigitalPin.P13, mode)
         pins.digitalWritePin(DigitalPin.P14, power)
@@ -120,6 +130,33 @@ namespace kagabitdrive {
 
         nowStop[0] == stop.Stop;
            
+    }
+
+    //% blockId=R_DCmotor_stop
+    //% block="Rモーター停止"
+    export function RmotorStop() {
+        if (nowStop[1] == stop.Move) { //モーターが動いていたら
+            if (nowDirection[1] == direction.Forward) {    //前回転の場合
+                pins.digitalWritePin(DigitalPin.P13, direction.Back)
+            } else {  //後ろ回転の場合
+                pins.digitalWritePin(DigitalPin.P13, direction.Forward)
+            }
+            if (nowADmode[1] == adMode.Analog) {  //アナログの場合
+
+                pins.analogWritePin(AnalogPin.P14, nowPower[0])
+                basic.pause(50)
+                pins.analogWritePin(AnalogPin.P14, 0)
+            } else {  //デジタルの場合
+                pins.digitalWritePin(DigitalPin.P14, nowPower[0])
+                basic.pause(50)
+                pins.digitalWritePin(DigitalPin.P14, 0)
+            }
+        } else {
+
+        }
+
+        nowStop[1] == stop.Stop;
+
     }
 
     //% blockId=L_Servo_Angle block="Lサーボの角度%angle"
