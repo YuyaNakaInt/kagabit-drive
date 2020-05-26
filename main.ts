@@ -94,17 +94,20 @@ namespace kagabitdrive {
     //% block="Lモーター停止"
     export function LmotorStop() {
         if (nowStop[0] == stop.Move) { //モーターが動いていたら
+            if (nowDirection[0] == direction.Forward) {    //前回転の場合
+                pins.digitalWritePin(DigitalPin.P15, direction.Back)
+            } else {  //後ろ回転の場合
+                pins.digitalWritePin(DigitalPin.P15, direction.Forward)
+            }
             if(nowADmode[0] == adMode.Analog){  //アナログの場合
-                if(nowDirection[0]== direction.Forward){    //前回転の場合
-                    pins.digitalWritePin(DigitalPin.P15, direction.Back)
-                }else{  //後ろ回転の場合
-                    pins.digitalWritePin(DigitalPin.P15, direction.Forward)
-                }
+                
                 pins.analogWritePin(AnalogPin.P16, nowPower[0])
                 basic.pause(50)
                 pins.analogWritePin(AnalogPin.P16, 0)
-            }else{
-
+            }else{  //デジタルの場合
+                pins.digitalWritePin(DigitalPin.P16, nowPower[0])
+                basic.pause(50)
+                pins.digitalWritePin(DigitalPin.P16, 0)
             }
         }else{
 
