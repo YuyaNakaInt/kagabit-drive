@@ -75,6 +75,11 @@ namespace kagabitdrive {
     //% power.min=0 power.max=1
     export function LmotorD(mode: direction, power: number) {
 
+        nowADmode[0] = adMode.Digital;
+        nowDirection[0] = mode;
+        nowPower[0] = power;
+        nowStop[0] = stop.Move;
+
         pins.digitalWritePin(DigitalPin.P15, mode)
         pins.digitalWritePin(DigitalPin.P16, power)
 
