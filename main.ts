@@ -33,13 +33,6 @@ namespace kagabitdrive {
     let nowPower =[0,0];
     let nowStop=[stop.Stop,stop.Stop];
 
-    //% blockId=pintest block="ピンの利用 %pin1 %v"
-    export function pintest(pin1: DigitalPin): void {
-        pins.digitalWritePin(pin1, 1)
-        basic.pause(50)
-        pins.digitalWritePin(pin1, 0)
-    }
-
     //% blockId=use_led block="LEDの利用 %ledmode %v"
     export function useled(ledmode:ledmodeval):void{
         if(ledmode == ledmodeval.Use){
