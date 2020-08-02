@@ -55,8 +55,8 @@ namespace kagabitdrive {
         nowPower[0] = power;
         nowStop[0] = stop.Move;
 
-        pins.digitalWritePin(DigitalPin.P15, mode)
-        pins.analogWritePin(AnalogPin.P16, power)
+        pins.digitalWritePin(DigitalPin.P13, mode)
+        pins.analogWritePin(AnalogPin.P14, power)
   
     }
 
@@ -70,8 +70,8 @@ namespace kagabitdrive {
         nowPower[1] = power;
         nowStop[1] = stop.Move;
 
-        pins.digitalWritePin(DigitalPin.P13, mode)
-        pins.analogWritePin(AnalogPin.P14, power)
+        pins.digitalWritePin(DigitalPin.P15, mode)
+        pins.analogWritePin(AnalogPin.P16, power)
 
     }
 
@@ -85,8 +85,8 @@ namespace kagabitdrive {
         nowPower[0] = power;
         nowStop[0] = stop.Move;
 
-        pins.digitalWritePin(DigitalPin.P15, mode)
-        pins.digitalWritePin(DigitalPin.P16, power)
+        pins.digitalWritePin(DigitalPin.P13, mode)
+        pins.digitalWritePin(DigitalPin.P14, power)
 
     }
 
@@ -100,8 +100,8 @@ namespace kagabitdrive {
         nowPower[1] = power;
         nowStop[1] = stop.Move;
 
-        pins.digitalWritePin(DigitalPin.P13, mode)
-        pins.digitalWritePin(DigitalPin.P14, power)
+        pins.digitalWritePin(DigitalPin.P15, mode)
+        pins.digitalWritePin(DigitalPin.P16, power)
 
     }
 
@@ -110,19 +110,19 @@ namespace kagabitdrive {
     export function LmotorStop() {
         if (nowStop[0] == stop.Move) { //モーターが動いていたら
             if (nowDirection[0] == direction.Forward) {    //前回転の場合
-                pins.digitalWritePin(DigitalPin.P15, direction.Back)
+                pins.digitalWritePin(DigitalPin.P13, direction.Back)
             } else {  //後ろ回転の場合
-                pins.digitalWritePin(DigitalPin.P15, direction.Forward)
+                pins.digitalWritePin(DigitalPin.P13, direction.Forward)
             }
             if(nowADmode[0] == adMode.Analog){  //アナログの場合
                 
-                pins.analogWritePin(AnalogPin.P16, nowPower[0])
+                pins.analogWritePin(AnalogPin.P14, nowPower[0])
                 basic.pause(50)
-                pins.analogWritePin(AnalogPin.P16, 0)
+                pins.analogWritePin(AnalogPin.P14, 0)
             }else{  //デジタルの場合
-                pins.digitalWritePin(DigitalPin.P16, nowPower[0])
+                pins.digitalWritePin(DigitalPin.P14, nowPower[0])
                 basic.pause(50)
-                pins.digitalWritePin(DigitalPin.P16, 0)
+                pins.digitalWritePin(DigitalPin.P14, 0)
             }
         }else{
 
@@ -137,19 +137,19 @@ namespace kagabitdrive {
     export function RmotorStop() {
         if (nowStop[1] == stop.Move) { //モーターが動いていたら
             if (nowDirection[1] == direction.Forward) {    //前回転の場合
-                pins.digitalWritePin(DigitalPin.P13, direction.Back)
+                pins.digitalWritePin(DigitalPin.P15, direction.Back)
             } else {  //後ろ回転の場合
-                pins.digitalWritePin(DigitalPin.P13, direction.Forward)
+                pins.digitalWritePin(DigitalPin.P15, direction.Forward)
             }
             if (nowADmode[1] == adMode.Analog) {  //アナログの場合
 
-                pins.analogWritePin(AnalogPin.P14, nowPower[0])
+                pins.analogWritePin(AnalogPin.P16, nowPower[0])
                 basic.pause(50)
-                pins.analogWritePin(AnalogPin.P14, 0)
+                pins.analogWritePin(AnalogPin.P16, 0)
             } else {  //デジタルの場合
-                pins.digitalWritePin(DigitalPin.P14, nowPower[0])
+                pins.digitalWritePin(DigitalPin.P16, nowPower[0])
                 basic.pause(50)
-                pins.digitalWritePin(DigitalPin.P14, 0)
+                pins.digitalWritePin(DigitalPin.P16, 0)
             }
         } else {
 
@@ -163,14 +163,14 @@ namespace kagabitdrive {
     //% angle.min=0 angle.max=180
     export function LServoAngle(angle: number) {
         
-        pins.servoWritePin(AnalogPin.P4, angle)
+        pins.servoWritePin(AnalogPin.P7, angle)
     }
 
     //% blockId=R_Servo_Angle block="Rサーボの角度%angle"
     //% angle.min=0 angle.max=180
     export function RServoAngle(angle: number) {
         
-        pins.servoWritePin(AnalogPin.P3, angle)
+        pins.servoWritePin(AnalogPin.P9, angle)
     }
     
 }
