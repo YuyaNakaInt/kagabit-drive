@@ -47,10 +47,45 @@ namespace kagabitdrive {
 
 
     //% blockId="Double_DCmotorAnalog"
-    //% block="Lモーター %power1 Rモーター %power2"
-    //% power1.min=-1023 power1.max=1023
-    //% power2.min=-1023 power2.max=1024
-    export function DoubleMotor(power1:number,power2:number){
+    //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
+    //% powerL.min=-1023 powerR.max=1023
+    //% powerL.min=-1023 powerR.max=1023
+    export function DoubleMotor(powerL:number,powerR:number){
+
+        nowADmode[0] = adMode.Analog;
+        nowADmode[1] = adMode.Analog;
+
+        if (powerL == 0) {
+            nowPower[0] = Math.abs(powerL);
+            nowStop[0] = stop.Stop;
+        }else if(powerL >= 0){
+            nowDirection[0] = direction.Forward;
+            nowPower[0] = Math.abs(powerL);
+            nowStop[0] = stop.Move;
+        } else {
+            nowDirection[0] = direction.Back;
+            nowPower[0] = Math.abs(powerL);
+            nowStop[0] = stop.Move;
+        }
+
+        if (powerR == 0) {
+            nowPower[1] = Math.abs(powerR);
+            nowStop[1] = stop.Stop;
+        }else if(powerR >= 0){
+            nowDirection[1] = direction.Forward;
+            nowPower[1] = Math.abs(powerR);
+            nowStop[1] = stop.Move;
+        } else {
+            nowDirection[1] = direction.Back;
+            nowPower[1] = Math.abs(powerR);
+            nowStop[1] = stop.Move;
+        }
+
+        pins.digitalWritePin(DigitalPin.P13, nowDirection[0])
+        pins.analogWritePin(AnalogPin.P14, nowPower[0])
+
+        pins.digitalWritePin(DigitalPin.P15, nowDirection[1])
+        pins.analogWritePin(AnalogPin.P16, nowPower[1])
 
     }
 
