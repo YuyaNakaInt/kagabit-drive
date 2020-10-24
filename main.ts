@@ -47,7 +47,7 @@ namespace kagabitdrive {
 
 
     //% blockId = "Double_DCmotorAnalog"
-    //% block = "Lモーター%power1 Rモーター%power2"
+    //% block = "Lモーター %power1 Rモーター %power2"
     //% power1.min=-1023 power1.max=1023
     //% power2.min=-1023 power2.max=1023
     export function DoubleMotor(power1:number,power2:number){
