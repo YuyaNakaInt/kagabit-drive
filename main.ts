@@ -48,8 +48,8 @@ namespace kagabitdrive {
 
     //% blockId="Double_DCmotorAnalog"
     //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
-    //% powerL.min=-1023 powerR.max=1023
-    //% powerL.min=-1023 powerR.max=1023
+    //% powerL.min=-1023 powerL.max=1023
+    //% powerR.min=-1023 powerR.max=1023
     export function DoubleMotor(powerL:number,powerR:number){
 
         nowADmode[0] = adMode.Analog;
