@@ -33,19 +33,6 @@ namespace kagabitdrive {
     let nowPower =[0,0];
     let nowStop=[stop.Stop,stop.Stop];
 
-    //% blockId=001use_led block="LEDの利用 %ledmode %v"
-    export function useled(ledmode:ledmodeval):void{
-        if(ledmode == ledmodeval.Use){
-            led.enable(true)
-        }
-        else if (ledmode == ledmodeval.NoUse){
-            led.enable(false)
-        }else{
-
-        }
-    }
-
-
     //% blockId="Double_DCmotorAnalog"
     //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
     //% powerL.min=-1023 powerL.max=1023
