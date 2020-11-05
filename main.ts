@@ -33,6 +33,7 @@ namespace kagabitdrive {
     let nowPower =[0,0];
     let nowStop=[stop.Stop,stop.Stop];
 
+//% group="4-Digit"
     //% blockId="Double_DCmotorAnalog"
     //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
     //% powerL.min=-1023 powerL.max=1023
