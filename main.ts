@@ -33,7 +33,7 @@ namespace kagabitdrive {
     let nowPower =[0,0];
     let nowStop=[stop.Stop,stop.Stop];
 
-    //% blockId=use_led block="LEDの利用 %ledmode %v"
+    //% blockId=001use_led block="LEDの利用 %ledmode %v"
     export function useled(ledmode:ledmodeval):void{
         if(ledmode == ledmodeval.Use){
             led.enable(true)
