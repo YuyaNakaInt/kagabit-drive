@@ -22,6 +22,7 @@ namespace kagabitdrive {
 
     }
 
+    //% group="DCモーター"
     //% blockId=L_DCmotorAnalog
     //% block="モーター制御 Lモーター%powerL"
     //% powerL.min=-1023 powerL.max=1023
@@ -52,6 +53,7 @@ namespace kagabitdrive {
 
     }
 
+    //% group="DCモーター"
     //% blockId=R_DCmotorAnalog
     //% block="モーター制御 Rモーター%powerR"
     //% powerR.min=-1023 powerR.max=1023
