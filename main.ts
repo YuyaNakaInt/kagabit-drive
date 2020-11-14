@@ -11,7 +11,7 @@ namespace kagabitdrive {
     let nowPower =[0,0];
 
     //% group="DCモーター"
-    //% blockId="Double_DCmotorAnalog"
+    //% blockId="1Double_DCmotorAnalog"
     //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
     //% powerL.min=-1023 powerL.max=1023
     //% powerR.min=-1023 powerR.max=1023
@@ -23,7 +23,7 @@ namespace kagabitdrive {
     }
 
     //% group="DCモーター"
-    //% blockId=L_DCmotorAnalog
+    //% blockId=2L_DCmotorAnalog
     //% block="モーター制御 Lモーター%powerL"
     //% powerL.min=-1023 powerL.max=1023
     export function LmotorA(powerL: number) {
@@ -54,7 +54,7 @@ namespace kagabitdrive {
     }
 
     //% group="DCモーター"
-    //% blockId=R_DCmotorAnalog
+    //% blockId=3R_DCmotorAnalog
     //% block="モーター制御 Rモーター%powerR"
     //% powerR.min=-1023 powerR.max=1023
     export function RmotorA(powerR: number) {
