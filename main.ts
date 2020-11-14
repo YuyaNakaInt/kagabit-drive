@@ -89,7 +89,7 @@ namespace kagabitdrive {
         
         pins.servoWritePin(AnalogPin.P7, angle)
     }
-
+    //% group="サーボモーター"
     //% blockId=R_Servo_Angle block="Rサーボの角度%angle"
     //% angle.min=0 angle.max=180
     export function RServoAngle(angle: number) {
