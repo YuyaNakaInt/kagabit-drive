@@ -11,19 +11,37 @@ namespace kagabitdrive {
     let nowPower =[0,0];
 
     //% group="DCモーター"
-    //% blockId="1Double_DCmotorAnalog"
-    //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
-    //% powerL.min=-1023 powerL.max=1023
+    //% blockId=R_DCmotorAnalog
+    //% block="モーター制御 Rモーター%powerR"
     //% powerR.min=-1023 powerR.max=1023
-    export function DoubleMotor(powerL:number,powerR:number){
+    export function RmotorA(powerR: number) {
 
-        LmotorA(powerL)
-        RmotorA(powerR)
+        if(powerR > 0){
+           pins.digitalWritePin(DigitalPin.P15, direction.Forward);
+           pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
+       }else if(powerR > 0){
+           pins.digitalWritePin(DigitalPin.P15, direction.Back);
+           pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
+       }else{
+           //停止
+           if(nowPower[1] > 0){
+               pins.digitalWritePin(DigitalPin.P15, direction.Back);
+               pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
+               basic.pause(50);
+           }else if(nowPower[1] < 0){
+               pins.digitalWritePin(DigitalPin.P15, direction.Forward);
+               pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
+               basic.pause(50);
+           }
+             pins.analogWritePin(AnalogPin.P16, 0);
+
+       }
+       nowPower[1] = powerR;
 
     }
 
     //% group="DCモーター"
-    //% blockId=2L_DCmotorAnalog
+    //% blockId=L_DCmotorAnalog
     //% block="モーター制御 Lモーター%powerL"
     //% powerL.min=-1023 powerL.max=1023
     export function LmotorA(powerL: number) {
@@ -53,37 +71,18 @@ namespace kagabitdrive {
 
     }
 
-    //% group="DCモーター"
-    //% blockId=3R_DCmotorAnalog
-    //% block="モーター制御 Rモーター%powerR"
+     //% group="DCモーター"
+    //% blockId="Double_DCmotorAnalog"
+    //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
+    //% powerL.min=-1023 powerL.max=1023
     //% powerR.min=-1023 powerR.max=1023
-    export function RmotorA(powerR: number) {
+    export function DoubleMotor(powerL:number,powerR:number){
 
-        if(powerR > 0){
-           pins.digitalWritePin(DigitalPin.P15, direction.Forward);
-           pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
-       }else if(powerR > 0){
-           pins.digitalWritePin(DigitalPin.P15, direction.Back);
-           pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
-       }else{
-           //停止
-           if(nowPower[1] > 0){
-               pins.digitalWritePin(DigitalPin.P15, direction.Back);
-               pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
-               basic.pause(50);
-           }else if(nowPower[1] < 0){
-               pins.digitalWritePin(DigitalPin.P15, direction.Forward);
-               pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
-               basic.pause(50);
-           }
-             pins.analogWritePin(AnalogPin.P16, 0);
-
-       }
-       nowPower[1] = powerR;
+        LmotorA(powerL)
+        RmotorA(powerR)
 
     }
 
- 
     //% group="サーボモーター"
     //% blockId=L_Servo_Angle block="Lサーボの角度%angle"
     //% angle.min=0 angle.max=180
