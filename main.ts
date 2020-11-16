@@ -1,4 +1,4 @@
-//% weight=30 icon="\uf1b9" color=#000000 block="KAGA:bit-Drive"
+//% weight=30 icon="\uf1b9" color=#000080 block="KAGA:bit-Drive"
 namespace kagabitdrive {
 
     export enum direction {
@@ -71,7 +71,7 @@ namespace kagabitdrive {
 
     }
 
-     //% group="DCモーター"
+    //% group="DCモーター"
     //% blockId="Double_DCmotorAnalog"
     //% block="モーター制御 Lモーター %powerL Rモーター %powerR"
     //% powerL.min=-1023 powerL.max=1023
