@@ -27,11 +27,11 @@ namespace kagabitdrive {
            if(nowPower[1] > 0){
                pins.digitalWritePin(DigitalPin.P15, direction.Back);
                pins.analogWritePin(AnalogPin.P16, Math.abs(nowPower[1]));
-               basic.pause(50);
+               basic.pause(10);
            }else if(nowPower[1] < 0){
                pins.digitalWritePin(DigitalPin.P15, direction.Forward);
                pins.analogWritePin(AnalogPin.P16, Math.abs(nowPower[1]));
-               basic.pause(50);
+               basic.pause(10);
            }
              pins.analogWritePin(AnalogPin.P16, 0);
 
@@ -57,11 +57,11 @@ namespace kagabitdrive {
            if(nowPower[0] > 0){
                pins.digitalWritePin(DigitalPin.P13, direction.Back);
                pins.analogWritePin(AnalogPin.P14, Math.abs(nowPower[0]));
-               basic.pause(50);
+               basic.pause(10);
            }else if(nowPower[0] < 0){
                pins.digitalWritePin(DigitalPin.P13, direction.Forward);
                pins.analogWritePin(AnalogPin.P14, Math.abs(nowPower[0]));
-               basic.pause(50);
+               basic.pause(10);
            }
              pins.analogWritePin(AnalogPin.P14, 0);
 
