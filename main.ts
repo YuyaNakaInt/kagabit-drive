@@ -102,7 +102,7 @@ namespace kagabitdrive {
     //% block="ブレーキ %brake"
     export function setBrake(brake:brakeValue){
         nowBrake = brake;
-        basic.showNumber(nowBrake)
+        //basic.showNumber(nowBrake)
     }
 
      //% group="サーボモーター"
