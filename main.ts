@@ -76,6 +76,7 @@ namespace kagabitdrive {
                     pins.analogWritePin(AnalogPin.P14, Math.abs(nowPower[0]));
                     basic.pause(30);
                 }
+                basic.showIcon(IconNames.Heart)
            }
              pins.analogWritePin(AnalogPin.P14, 0);
 
