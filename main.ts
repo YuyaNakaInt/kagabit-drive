@@ -8,7 +8,15 @@ namespace kagabitdrive {
         Back = 0
     }
 
+    export enum brakeValue{
+        //% block="ON"
+        On = 1,
+        //% block="OFF"
+        Off = 0
+    }
+
     let nowPower =[0,0];
+    let nowBrake = brakeValue.On
 
     //% group="DCモーター"
     //% blockId=R_DCmotorAnalog
@@ -81,6 +89,13 @@ namespace kagabitdrive {
         LmotorA(powerL)
         RmotorA(powerR)
 
+    }
+
+    //% group="DCモーター"
+    //% blockId="Set_brake"
+    //% block="ブレーキ %brake"
+    export function setBrake(brake:brakeValue){
+        nowBrake = brake;
     }
 
      //% group="サーボモーター"
