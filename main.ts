@@ -32,7 +32,7 @@ namespace kagabitdrive {
            pins.analogWritePin(AnalogPin.P16, Math.abs(powerR));
        }else{
            //停止
-           if(nowBrake=brakeValue.On){
+           if(nowBrake==brakeValue.On){
                //ブレーキ処理Onの場合
                if(nowPower[1] > 0){
                     pins.digitalWritePin(DigitalPin.P15, direction.Back);
@@ -66,7 +66,7 @@ namespace kagabitdrive {
            pins.analogWritePin(AnalogPin.P14, Math.abs(powerL));
        }else{
            //停止
-           if(nowBrake=brakeValue.On){
+           if(nowBrake==brakeValue.On){
                 if(nowPower[0] > 0){
                     pins.digitalWritePin(DigitalPin.P13, direction.Back);
                     pins.analogWritePin(AnalogPin.P14, Math.abs(nowPower[0]));
