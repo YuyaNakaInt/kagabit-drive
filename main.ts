@@ -82,7 +82,6 @@ namespace kagabitdrive {
        }
 
         nowPower[0] = powerL;
-
     }
 
     //% group="DCモーター"
