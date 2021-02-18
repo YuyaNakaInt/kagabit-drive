@@ -16,7 +16,7 @@ namespace kagabitdrive {
     }
 
     let nowPower =[0,0];
-    let nowBrake = brakeValue.On
+    let nowBrake = brakeValue.Off
 
     //% group="DCモーター"
     //% blockId=R_DCmotorAnalog
